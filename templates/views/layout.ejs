@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/css/app.css"> -->
+    <title>Product API</title>
+    <style>
+        .btn-primary {
+            background: #FE5F1E; /*primary*/
+            transition: .3s ease-in-out;
+        }
+    
+        .btn-primary:hover {
+            background: #b23301; /*primary-hover*/
+        }
+    
+        nav li a {
+            transition: .3s ease-in-out;
+        }
+    
+        nav li a:hover {
+            color: #FE5F1E;
+        }
+        nav li:last-child a {
+            background: #FE5F1E;
+        }
+        nav li:last-child a:hover {
+            background-color: #b23301;
+        }
+    
+        section.login {
+            background: #f8f8f8; /*secondary*/
+            min-height: calc(100vh - 115px);
+        }
+    
+        section.login a {
+            color: #FE5F1E;
+        }
+    
+        section.login a:hover {
+            color: #b23301;
+        }
+        .addToProduct {
+            border: 2px solid #FE5F1E;
+            color: #FE5F1E;
+            transition: .3s ease-in-out;
+        }
+        .addToProduct:hover {
+            background: #FE5F1E;
+            border-color: #fff;
+            color: #fff;
+        }
+        .addToProduct:focus {
+            outline: none;
+        }
+
+        section .product {
+            background: #f8f8f8;
+        }
+        section .product .amount {
+            color: #FE5F1E;
+        }
+        .noty_theme__mint {
+            border-radius: 50px!important;
+            padding-left: 8px!important;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="container mx-auto flex items-center py-4 justify-between">
+        <!-- <div>
+            <img class="w-20 ml-4" src="/img/3.jpg" alt="logo">
+        </div> -->
+        <div>
+            <ul class="flex items-center">
+                <li class="ml-6"><a href="/">Home</a></li>
+                <li class="ml-6"><a href="/products">Products</a></li>
+                <li class="ml-6"><a href="/register">Register</a></li>
+                <li class="ml-6"><a href="/login">Login</a></li>
+                <li class="ml-6"><a href="/cart" class="inline-block flex items-center px-2 py-2 rounded-full">
+                        <span class="text-white font-bold pr-2" id="cartCounter">
+                            <%= session.product ? session.product.totalQnty : '' %>
+                        </span>
+                        <img class="w-10 mr-4" src="/img/cart.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <%- body %>
+        <script src="/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<section class="menu container mx-auto py-8">
+    <h1 class="ml-10 text-xl font-bold mb-8">All Products</h1>
+    <div class="grid grid-cols-5 gap-14">
+
+        <% products.forEach(function(product){ %>
+            <div class="w-64">
+                <img class="h-40 mb-4 mx-auto" src="/img/<%= product.image%>" alt="pizzaImg">
+                <div class="text-center">
+                    <h2 class="mb-4 text-lg">
+                        <%=product.name%>
+                    </h2>
+                    <div class="flex items-center justify-around mt-6">
+                        <span class="font-bold text-lg">Rs. <%= product.price %></span>
+                        <button data-product="<%= JSON.stringify(product) %>"
+                            class="addToProduct py-1 px-6 rounded-full flex items-center font-bold">
+                            <span>Buy</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+
+    </div>
+</section>

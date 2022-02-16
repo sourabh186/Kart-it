@@ -1,0 +1,35 @@
+<section class="login flex justify-center pt-24">
+    <div class="w-full max-w-xs">
+        <form action="/success" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Product Name</label>
+                <input type="text" value=""
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    name="name" id="name" placeholder="Enter product name">
+            </div>
+            <div class="mb-4">
+                <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
+                <input type="number" name="price" value=""
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="price" placeholder="Enter product price">
+            </div>
+            <div class="mb-6">
+                <label for="img name" class="block text-gray-700 text-sm font-bold mb-2">Image</label>
+                <input type="text" name="image"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="image" placeholder="example : image.jpg">
+            </div>
+            <div class="flex items-center justify-between">
+                <button
+                    class="btn-primary text-white font-bold py-2 px-4 rounded-full focu:outline-none focus:shadow-outline"
+                    type="submit">Add Product</button>
+                <a href="login"
+                    class="inline-block align-baseline font-bold text-sm">Already have account?</a>
+            </div>
+        </form>
+        <p class="text-center text-gray-500 text-xs">
+            &copy;2022 Sourabh Saini. All rights reserved.
+        </p>
+    </div>
+</section>
+

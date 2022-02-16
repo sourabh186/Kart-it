@@ -1,0 +1,57 @@
+<section class="product py-16">
+    <% if(session.product) {%>
+        <div class="order container mx-auto w-1/2">
+            <div class="flex items-center border-b border-gray-300 pb-4">
+                <img class="w-7" src="/img/cart.png" alt="small-product">
+                <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
+            </div>
+            <div class="product_list">
+                <% for(let product of Object.values(session.product.items)) {%>
+                    <div class="flex items-center my-8">
+                        <img class="w-24" src="/img/<%=product.item.image%>" alt="">
+                        <div class="flex-1 ml-4">
+                            <h1>
+                                <%=product.item.name%>
+                            </h1>
+                        </div>
+                        <span class="flex-1">
+                            <%= product.qnty%> Pcs
+                        </span>
+                        <span class="font-bold text-lg">Rs. <%= product.item.price * product.qnty%></span>
+                    </div>
+                    <% } %>
+            </div>
+            <hr>
+            <div class="text-right my-4">
+                <div>
+                    <span class="text-lg font-bold">Total Amount</span>
+                    <span class="amount text-2xl font-bold ml-2">Rs. <%= session.product ? session.product.totalPrice : 0 %>
+                            </span>
+                </div>
+                <div>
+                    <form action="" method="POST" class="mt-12">
+                        <input type="text" class="border border-gray-400 p-2 w-1/2 mb-4" placeholder="Phone Number">
+                        <input type="text" class="border border-gray-400 p-2 w-1/2" placeholder="Address">
+                        <div>
+                            <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6"
+                                id="orderNow" type="submit">Order Now</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- <a href="#" class="inline-block cursor-pointer btn-primary px-6 py-2 rounded-full text-white font-bold mt-6">Login to continue</a> -->
+            </div>
+        </div>
+        <% }else {%>
+            <div class="empty_cart py-16">
+                <div class="container mx-auto text-center">
+                    <div class="text-3xl font-bold mb-2">Cart Empty</div>
+                    <p class="text-gray-500 text-lg mb-12">You probably haven't ordered a product yet, <br>
+                        To order a product, go to the main page. <br>
+                        Or your session is time out. Please login again...</p>
+                    <img class="w-2/7 mx-auto" src="/img/cart.png" alt="empty-cart">
+                    <a href="/" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Go
+                        Back</a>
+                </div>
+            </div>
+            <% }%>
+</section>
