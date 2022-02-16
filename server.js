@@ -23,8 +23,7 @@ app.use(session({
     secret : process.env.SECRET_KEY,
     resave: false,
     store: MongoDbStore.create({
-        mongoUrl : DB,
-        collectionName: 'sessions'
+        mongoUrl : DB
     }),
     saveUninitialized: false,
     cookie : { maxAge : 1000 * 60 } // 1 mint
