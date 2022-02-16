@@ -12,7 +12,7 @@ const User = require('./src/models/userSchema')
 const Product = require('./src/models/productSchema')
 const flash = require('express-flash')
 const port = process.env.PORT || 8000
-const MongoDbStore = require('connect-mongo').default;
+const MongoDbStore = require('connect-mongo');
 const authenticate = require('./middleware/authenticate');
 
 app.use(express.json())
