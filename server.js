@@ -12,22 +12,20 @@ const User = require('./src/models/userSchema')
 const Product = require('./src/models/productSchema')
 const flash = require('express-flash')
 const port = process.env.PORT || 8000
-const MongoDbStore = require('connect-mongo');
+const MongoDbStore = require('connect-mongo').default;
 const authenticate = require('./middleware/authenticate');
 
 app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 app.use(express.static('public'))
 
-let mongoStore = new MongoDbStore({
-    mongoUrl : DB,
-    collection: 'sessions'
-})
-
 app.use(session({
     secret : process.env.SECRET_KEY,
     resave: false,
-    store: mongoStore,
+    store: MongoDbStore.create({
+        mongoUrl : DB,
+        collection: 'sessions'
+    }),
     saveUninitialized: false,
     cookie : { maxAge : 1000 * 60 } // 1 mint
 }))
