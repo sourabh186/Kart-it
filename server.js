@@ -2,6 +2,7 @@ require('dotenv').config()
 require('./src/db/conn')
 const express = require('express')
 const app = express()
+const DB = process.env.DATABASE
 const bcrypt = require('bcryptjs');
 const session = require('express-session')
 const ejs = require('ejs')
@@ -19,7 +20,7 @@ app.use(express.urlencoded({extended : false}))
 app.use(express.static('public'))
 
 let mongoStore = new MongoDbStore({
-    mongoUrl : 'mongodb://localhost:27017/task',
+    mongoUrl : DB,
     collection: 'sessions'
 })
 
