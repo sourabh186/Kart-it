@@ -24,7 +24,7 @@ app.use(session({
     resave: false,
     store: MongoDbStore.create({
         mongoUrl : DB,
-        collection: 'sessions'
+        collectionName: 'sessions'
     }),
     saveUninitialized: false,
     cookie : { maxAge : 1000 * 60 } // 1 mint
